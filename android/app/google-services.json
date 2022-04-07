@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "918465248405",
+    "project_id": "condominus-948dc",
+    "storage_bucket": "condominus-948dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918465248405:android:c20ffd83b7ad83b76aaf9c",
+        "android_client_info": {
+          "package_name": "br.com.villecreations.condominusadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918465248405-cok9m3g2uqdvs7iknb6a0sk9lfmcb0n4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.villecreations.condominusadmin",
+            "certificate_hash": "461e82dbb6b9c89e496b2c767eca588a981340cf"
+          }
+        },
+        {
+          "client_id": "918465248405-6rnol44efm7m71n176pj32m935r61t7v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDZ1rG9r5ea350zfVWZQqIrcemkGYgcyI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918465248405-6rnol44efm7m71n176pj32m935r61t7v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
