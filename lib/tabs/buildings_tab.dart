@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:condominusadmin/screens/widgets/building_tile.dart';
 import 'package:flutter/material.dart';
 
 class BuildingsTab extends StatefulWidget {
@@ -11,8 +12,8 @@ class _BuildingsTabState extends State<BuildingsTab>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return FutureBuilder<QuerySnapshot>(
-        future: FirebaseFirestore.instance.collection("buildings").get(),
+    return StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection("units").snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return const Center(
@@ -20,14 +21,11 @@ class _BuildingsTabState extends State<BuildingsTab>
                   valueColor: AlwaysStoppedAnimation(Colors.pinkAccent)),
             );
           } else {
-            var count = 0;
-            if (snapshot.data != null && snapshot.data!.docs.isEmpty) {
-              count = snapshot.data!.docs.length;
-            }
+            final int cont = snapshot.data!.docs.length;
             return ListView.builder(
-                itemCount: count,
+                itemCount: cont,
                 itemBuilder: (context, index) {
-                  return BuildingsTab(snapshot.data?.docs[index]);
+                  return BuildingTile(snapshot.data!.docs[index]);
                 });
           }
         });

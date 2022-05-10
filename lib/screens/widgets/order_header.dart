@@ -11,9 +11,9 @@ class OrderHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final orderData = order?.data()! as Map;
+    final orderData = order?.data() as Map;
     final _user = _userBloc.getUser(orderData["userId"]);
-
+    if (_user.isEmpty) return Container();
     return Row(
       children: [
         Expanded(

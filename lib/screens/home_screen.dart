@@ -2,6 +2,7 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
+import './widgets/widgets.dart';
 import '../blocs/blocs.dart';
 import '../tabs/tabs.dart';
 
@@ -48,12 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   duration: Duration(milliseconds: 500), curve: Curves.ease);
             },
             items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: "Clientes"),
+                  icon: Icon(Icons.person), label: "Moradores"),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: "Clientes"),
+                  icon: Icon(Icons.message), label: "Solicitações"),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: "Clientes")
+                  icon: Icon(Icons.business), label: "Unidades"),
             ],
           ),
         ),
@@ -69,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
               },
               children: [
+                HomeTab(),
                 UsersTab(),
                 OrdersTab(),
                 BuildingsTab(),
@@ -83,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
     switch (_page) {
       case 0:
         return Center();
-      case 1:
+      case 2:
         return SpeedDial(
           overlayOpacity: 0.4,
           overlayColor: Colors.black,
@@ -112,6 +115,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 }),
           ],
         );
+      case 3:
+        return FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {
+              showDialog(
+                  context: context, builder: (context) => EditBuilding());
+            });
     }
     return Center();
   }
